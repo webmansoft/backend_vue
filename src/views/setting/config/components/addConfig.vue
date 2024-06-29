@@ -29,7 +29,7 @@ const submit = async (data) => {
     }
     const response = await config.save(data)
     emit('success', response.code === 200)
-    response.code === 200 && await formRef.value.resetForm()
+    response.code === 200 && formRef.value.resetForm()
   }
 }
 

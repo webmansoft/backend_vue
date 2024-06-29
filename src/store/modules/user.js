@@ -51,7 +51,7 @@ const useUserStore = defineStore('user', {
 
     requestUserInfo() {
       return new Promise((resolve, reject) => {
-        loginApi.getInfo().then(async response => {
+        loginApi.getUserInfo().then(async response => {
           if (! response || ! response.data) {
             this.clearToken()
             await router.push({name: 'login'})
@@ -70,9 +70,9 @@ const useUserStore = defineStore('user', {
     },
 
     login(form) {
-      return loginApi.login(form).then(r => {
-        if (r.code === 200) {
-          this.setToken(r.data.token)
+      return loginApi.login(form).then(res => {
+        if (res.code === 0) {
+          this.setToken(res.data.access_token)
           return true
         } else {
           return false

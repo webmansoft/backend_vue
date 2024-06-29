@@ -100,12 +100,12 @@
   })
 
   const getMessageList = async (key, index) => {
-    await nextTick(() => {
+    nextTick(() => {
       const children = msgMenuRef.value.children
       if (children && children[index].className.indexOf('active') === -1) {
-        for (let i = 0; i < children.length; i++) children[i].className = ''
+        for ( let i = 0; i < children.length; i++) children[i].className = ''
         children[index].className = 'active'
-        if (!['send_box', 'receive_box'].includes(key)) {
+        if (! ['send_box', 'receive_box'].includes(key)) {
           crud.value.requestParams.content_type = key
         } else {
           crud.value.requestParams.content_type = 'all'

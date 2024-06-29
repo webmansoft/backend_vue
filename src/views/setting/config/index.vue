@@ -292,7 +292,7 @@
     if (response.code === 200) {
       Message.success('配置删除成功')
       deleteGroupData.value = {}
-      await getConfigGroupList()
+      getConfigGroupList()
       done(true)
     }
   }

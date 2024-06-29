@@ -1,6 +1,6 @@
 <template>
     <div>
-      <AsyncComponent v-if="url !== ''" :url="url" />
+      <AsyncComponent v-if="url != ''" :url="url" />
     </div>
 </template>
 <script setup>
