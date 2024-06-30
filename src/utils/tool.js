@@ -72,19 +72,19 @@ tool.session = {
  */
 tool.cookie = {
   set(name, value, config = {}) {
-    var cfg = {
+    const cfg = {
       expires: null,
       path: null,
       domain: null,
       secure: false,
       httpOnly: false,
       ...config
-    }
-    var cookieStr = `${name}=${escape(value)}`
+    };
+    let cookieStr = `${name}=${escape(value)}`;
     if (cfg.expires) {
-      var exp = new Date()
+      const exp = new Date();
       exp.setTime(exp.getTime() + parseInt(cfg.expires) * 1000)
-      cookieStr += `;expires=${exp.toGMTString()}`
+      cookieStr += `;expires=${exp.toUTCString()}`
     }
     if (cfg.path) {
       cookieStr += `;path=${cfg.path}`
@@ -95,7 +95,7 @@ tool.cookie = {
     document.cookie = cookieStr
   },
   get(name) {
-    var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"))
+    const arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
     if (arr != null) {
       return unescape(arr[2])
     } else {
@@ -103,7 +103,7 @@ tool.cookie = {
     }
   },
   remove(name) {
-    var exp = new Date()
+    const exp = new Date();
     exp.setTime(exp.getTime() - 1)
     document.cookie = `${name}=;expires=${exp.toGMTString()}`
   }
@@ -192,7 +192,7 @@ tool.showFile = function(hash, defaultStorage = 'LOCAL') {
 
 /* 日期格式化 */
 tool.dateFormat = (date, fmt = 'yyyy-MM-dd hh:mm:ss', isDefault = '-') => {
-  if (date.toString().length == 10) {
+  if (date.toString().length === 10) {
     date = date * 1000
   }
   date = new Date(date)
@@ -214,7 +214,7 @@ tool.dateFormat = (date, fmt = 'yyyy-MM-dd hh:mm:ss', isDefault = '-') => {
   }
   for (let k in o) {
     if (new RegExp("(" + k + ")").test(fmt)) {
-      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     }
   }
   return fmt;
@@ -280,7 +280,7 @@ tool.formatSize = (size) => {
     size /= 1024
     index = i
   }
-  return Math.round(size, 2) + units[index]
+  return Math.round(size) + units[index]
 }
 
 tool.download = (res, downName = '') => {
@@ -293,8 +293,8 @@ tool.download = (res, downName = '') => {
 		blob = new Blob([res.data], { type: res.headers['content-type'].replace(';charset=utf8', '') })
 		if (!downName) {
 			const contentDisposition = decodeURI(res.headers['content-disposition'])
-			const result = contentDisposition.match(/filename=\"(.+)/gi)
-			fileName = result[0].replace(/filename=\"/gi, '')
+			const result = contentDisposition.match(/filename="(.+)/gi)
+			fileName = result[0].replace(/filename="/gi, '')
 			fileName = fileName.replace('"', '')
 		}
 	}
@@ -335,8 +335,8 @@ tool.httpBuild = (data, isPrefix = false) => {
 }
 
 tool.getRequestParams = (url) => {
-  const theRequest = new Object()
-  if (url.indexOf('?') != -1) {
+  const theRequest = {}
+  if (url.indexOf('?') !== -1) {
     const params = url.split('?')[1].split('&')
     for (let i = 0; i < params.length; i++) {
       const param = params[i].split('=')
