@@ -72,7 +72,7 @@ const useUserStore = defineStore('user', {
     login(form) {
       return loginApi.login(form).then(res => {
         if (res.code === 0) {
-          this.setToken(res.data.access_token)
+          this.setToken(res.data.token)
           return true
         } else {
           return false
@@ -84,7 +84,6 @@ const useUserStore = defineStore('user', {
     },
 
     async logout() {
-      // await loginApi.logout()
       const tagStore = useTagStore()
       tool.local.remove('tags')
       tagStore.clearTags()
@@ -107,7 +106,7 @@ const useUserStore = defineStore('user', {
 
 })
 
-//路由扁平化
+// 路由扁平化
 const flatAsyncRoutes = (routes, breadcrumb=[]) => {
   let res = []
   routes.forEach(route => {

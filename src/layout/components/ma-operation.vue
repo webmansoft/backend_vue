@@ -112,13 +112,15 @@
   const isDev = ref(import.meta.env.DEV)
   const handleSelect = async (name) => {
     if (name === 'userCenter') {
-      router.push({ name: 'userCenter'})
+      await router.push({name: 'userCenter'})
     }
+
     if (name === 'clearCache') {
-      const res = await commonApi.clearAllCache()
+      const res = await commonApi.clearCache()
       tool.local.remove('dictData')
       res.code === 200 && Message.success(res.message)
     }
+
     if (name === 'logout') {
       showLogoutModal.value = true
       document.querySelector('#app').style.filter = 'grayscale(1)'
@@ -128,7 +130,7 @@
   const handleLogout = async () => {
     await userStore.logout()
     document.querySelector('#app').style.filter = 'grayscale(0)'
-    router.push({name:'login'})
+    await router.push({name: 'login'})
   }
 
   const handleLogoutCancel = () => {

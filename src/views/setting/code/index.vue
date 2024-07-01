@@ -154,7 +154,7 @@ const crud = reactive({
   operationColumn: true,
   operationColumnWidth: 350,
   delete: { show: true, api: generate.deletes, realApi: generate.realDestroy },
-  recovery: { show: true, api: generate.recoverys },
+  recovery: { show: true, api: generate.recovery },
 });
 
 const columns = reactive([

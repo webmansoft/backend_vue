@@ -78,7 +78,7 @@
       api: role.deletes, auth: ['/core/role/destroy'],
       realApi: role.realDestroy, realAuth: ['/core/role/realDestroy']
     },
-    recovery: { show: true, api: role.recoverys, auth: ['/core/role/recovery']},
+    recovery: { show: true, api: role.recovery, auth: ['/core/role/recovery']},
     isDbClickEdit: false,
     beforeOpenEdit: (record) => {
       if (record.id === 1) {

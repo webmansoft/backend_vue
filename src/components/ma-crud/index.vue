@@ -75,7 +75,7 @@
             <a-popconfirm
               content="确定要恢复数据吗?"
               position="bottom"
-              @ok="recoverysMultipleAction"
+              @ok="recoveryMultipleAction"
               v-if="options.recovery.show && isRecovery && isBatch(options.delete)"
             >
               <a-button
@@ -158,8 +158,7 @@
             :default-expand-all-rows="options.expandAllRows"
             :summary="(options.customerSummary || options.showSummary) && __summary"
             @selection-change="setSelecteds"
-            @sorter-change="handlerSort"
-          >
+            @sorter-change="handlerSort">
               <template #tr="{ record }">
                 <tr
                   class="ma-crud-table-tr"
@@ -667,7 +666,7 @@ const deletesMultipleAction = async () => {
   }
 }
 
-const recoverysMultipleAction = async () => {
+const recoveryMultipleAction = async () => {
   if (selecteds.value && selecteds.value.length > 0) {
     const response = await options.value.recovery.api({ ids: selecteds.value })
     response.code === 200 && Message.success(response.message || `恢复成功！`)
@@ -678,7 +677,7 @@ const recoverysMultipleAction = async () => {
   }
 }
 
-const setSelecteds = (key) => {
+const setSelected = (key) => {
   selecteds.value = key
 }
 
@@ -850,7 +849,7 @@ const getColumnService = (strictMode = true) => {
 }
 
 defineExpose({
-  refresh, requestData, addAction, editAction, getTableData, setSelecteds,
+  refresh, requestData, addAction, editAction, getTableData, setSelected,
   getCurrentAction, getFormData, getFormColumns, getColumnService, getCurrentPage, getPageSize, getTotal,
   requestParams, isRecovery, tableRef, initSearchColumns,
   crudFormRef, crudSearchRef, crudImportRef, crudSettingRef

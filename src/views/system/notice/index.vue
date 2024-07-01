@@ -28,7 +28,7 @@
       api: notice.deletes, auth: ['/core/notice/destroy'],
       realApi: notice.realDestroy, realAuth: ['/core/notice/realDestroy']
     },
-    recovery: { show: true, api: notice.recoverys, auth: ['/core/notice/recovery']},
+    recovery: { show: true, api: notice.recovery, auth: ['/core/notice/recovery']},
     formOption: { width: 800 }
   })
 

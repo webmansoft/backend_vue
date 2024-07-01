@@ -3,10 +3,9 @@ import { request } from '@/utils/request.js'
 export default {
 	/**
 	 * 获取验证码
-	 * @returns
+	 * @returns {*}
 	 */
 	getCaptcha() {
-		// return import.meta.env.VITE_APP_PROXY_PREFIX + '/core/captcha?' + Date.parse(new Date().toString())
 		return request({
 			url: '/backend/captcha',
 			method: 'get',
@@ -15,8 +14,8 @@ export default {
 
 	/**
 	 * 用户登录
-	 * @param {object} params
-	 * @returns
+	 * @param params
+	 * @returns {*}
 	 */
 	login(params = {}) {
 		return request({
@@ -28,8 +27,8 @@ export default {
 
 	/**
 	 * 用户退出
-	 * @param {object} params
-	 * @returns
+	 * @param params
+	 * @returns {*}
 	 */
 	logout(params = {}) {
 		return request({
@@ -41,8 +40,8 @@ export default {
 
 	/**
 	 * 获取登录用户信息
-	 * @param {object} params
-	 * @returns
+	 * @param params
+	 * @returns {*}
 	 */
 	getUserInfo(params = {}) {
 		return request({
@@ -50,5 +49,5 @@ export default {
 			method: 'get',
 			data: params,
 		})
-	},
+	}
 }

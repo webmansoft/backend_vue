@@ -3,7 +3,7 @@
  * @author X.Mo <root@imoi.cn>
  */
 
- class Wsocket
+ class Websocket
  {
    /**
     * websocket 连接句柄
@@ -113,7 +113,7 @@
    onClose(evt) {
      clearInterval(this.heartbeat.timer)
  
-     if (evt.code == 1006) {
+     if (parseInt(evt.code) === 1006) {
        this.reconnect()
      }
  
@@ -157,7 +157,7 @@
     */
    reconnect() {
      let reconnect = this.reconnectConfig
-     if (! reconnect.isReconnect || reconnect.retry == 0) {
+     if (! reconnect.isReconnect || parseInt(reconnect.retry) === 0) {
        return
      }
  
@@ -191,5 +191,5 @@
    }
  }
  
- export default Wsocket
+ export default Websocket
  

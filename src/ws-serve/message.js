@@ -1,4 +1,4 @@
-import Wsocket from "@/utils/Wsocket"
+import Websocket from "@/utils/Websocket.js"
 import tool from '@/utils/tool'
 
 class Message {
@@ -10,7 +10,7 @@ class Message {
   interval = 60 * 1000
 
   constructor() {
-    this.ws = new Wsocket(
+    this.ws = new Websocket(
       import.meta.env.VITE_APP_WS_URL + '?token=' + tool.local.get(import.meta.env.VITE_APP_TOKEN_PREFIX), {
         onOpen:  _ => { console.log('已成功连接到消息服务器...') },
         onError: _ => {
