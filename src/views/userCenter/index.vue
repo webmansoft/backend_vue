@@ -6,7 +6,7 @@
       </div>
       <div>
         <a-tag size="large" class="mt-3 rounded-full" color="#165dff">
-          {{ userStore.user && (userStore.user.nickname || userStore.user.username) }}
+          {{ userStore.user && userStore.user.nickname || userStore.user && userStore.user.username }}
         </a-tag>
       </div>
     </div>
@@ -25,7 +25,7 @@
       <div class="ma-content-block w-full lg:w-6/12 mt-3 p-4 ml-0 lg:ml-3">
         <a-tabs type="rounded">
           <a-tab-pane key="login-log" title="登录日志">
-            <a-timeline class="pl-5 mt-3" v-if="(loginLogList && loginLogList.length)">
+            <a-timeline class="pl-5 mt-3"  v-if="(loginLogList && loginLogList.length)">
               <a-timeline-item
                 :label="`地理位置；${item.ip_location}，操作系统：${item.os}`"
                 v-for="(item, idx) in loginLogList"
@@ -114,7 +114,7 @@ export default { name: 'userCenter' }
 .user-header {
   width: 100%;
   height: 200px;
-  background: url('@/assets/user_banner.jpg') no-repeat;
+  background: url('@/assets/userBanner.jpg') no-repeat;
   background-size: cover;
 }
 </style>

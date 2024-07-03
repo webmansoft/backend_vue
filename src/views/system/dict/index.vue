@@ -65,7 +65,7 @@
       api: dictType.deletes, auth: ['/core/dictType/destroy'],
       realApi: dictType.realDestroy, realAuth: ['/core/dictType/realDestroy']
     },
-    recovery: { show: true, api: dictType.recovery, auth: ['/core/dictType/recovery']},
+    recovery: { show: true, api: dictType.recoverys, auth: ['/core/dictType/recovery']},
   })
 
   const columns = reactive([

@@ -58,7 +58,7 @@
       api: dept.deletes, auth: ['/core/dept/destroy'],
       realApi: dept.realDestroy, realAuth: ['/core/dept/realDestroy']
     },
-    recovery: { show: true, api: dept.recovery, auth: ['/core/dept/recovery']},
+    recovery: { show: true, api: dept.recoverys, auth: ['/core/dept/recovery']},
     isExpand: true,
   })
 

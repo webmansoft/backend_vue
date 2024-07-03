@@ -230,8 +230,8 @@ getTableConfig().then(response => {
 // }
 //
 
-const switchStatus = (statusValue, id) => {
-  let data = {id, statusValue}
+const switchStatus = (statusValue, id, statusName) => {
+  let data = {id, statusName, statusValue}
   request({
     url: 'setting/autoform/changeStatus/' + table_id.value,
     method: 'put',

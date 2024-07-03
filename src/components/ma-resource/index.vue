@@ -134,7 +134,7 @@
   const getAttachmentList = async (params = {}) => {
     const requestParams = Object.assign(params, { pageSize: pageSize.value })
     resourceLoading.value = true
-    const response = await commonApi.getUploadList(requestParams)
+    const response = await commonApi.getResourceList(requestParams)
     pageInfo.value = {
       total: response?.data?.total ?? 0,
       currentPage: response?.data?.current_page ?? 30

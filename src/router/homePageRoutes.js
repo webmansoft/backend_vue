@@ -11,7 +11,7 @@ const homePageRoutes = [
     component: () => import('@/views/dashboard/index.vue'),
   }, {
     name: 'userCenter',
-    path: '/userCenter', // usercenter
+    path: '/usercenter',
     meta: {
       title: '个人信息',
       icon: 'icon-user',

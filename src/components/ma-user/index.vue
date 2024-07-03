@@ -59,7 +59,7 @@
 
   const close = async (done) => {
     if (isArray(selecteds.value) && selecteds.value.length > 0) {
-      const response = await commonApi.getUserListByIds({ ids: selecteds.value })
+      const response = await commonApi.getUserInfoByIds({ ids: selecteds.value })
       if (! isEmpty(response) && isArray(response.data)) {
         userList.value = response.data.map( item => {
           return `${item.username}(${item.id})`

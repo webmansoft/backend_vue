@@ -187,7 +187,7 @@
       api: attachment.deletes, auth: ['/core/attachment/destroy'],
       realApi: attachment.realDestroy, realAuth: ['/core/attachment/realDestroy']
     },
-    recovery: { show: true, api: attachment.recovery, auth: ['/core/attachment/recovery']},
+    recovery: { show: true, api: attachment.recoverys, auth: ['/core/attachment/recovery']},
     isDbClickEdit: false,
   })
 

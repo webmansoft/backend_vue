@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/store'
 import NProgress from 'nprogress'
 import tool from '@/utils/tool'
@@ -29,7 +29,7 @@ router.beforeEach(async (to, from, next) => {
       return
     }
 
-    if (! userStore.user && userStore.user === undefined ) {
+    if (! userStore.user && userStore.user == undefined ) {
       const data = await userStore.requestUserInfo()
       data && next({ path: to.path, query: to.query })
     } else {

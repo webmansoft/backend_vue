@@ -45,7 +45,7 @@
       api: post.deletes, auth: ['/core/post/destroy'],
       realApi: post.realDestroy, realAuth: ['/core/menu/realDestroy']
     },
-    recovery: { show: true, api: post.recovery, auth: ['/core/post/recovery']},
+    recovery: { show: true, api: post.recoverys, auth: ['/core/post/recovery']},
     import: { show: true, url: '/core/post/import', templateUrl: '/core/post/downloadTemplate', auth: ['/core/post/import'] },
 	  export: { show: true, url: '/core/post/export', auth: ['/core/post/export'] },
   })

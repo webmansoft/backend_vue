@@ -52,5 +52,7 @@ const getNoticeList = async () => {
   data.value = res.data.data
 }
 
+
+
 getNoticeList()
 </script>

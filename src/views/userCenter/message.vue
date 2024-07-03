@@ -112,6 +112,8 @@
         }
         currentKey.value = key
         loadData(key)
+      } else {
+        return
       }
     })
   }
@@ -227,7 +229,7 @@ export default { name: 'message' }
   // border-right: 1px solid var(--color-border-2);
   & li {
     border-radius: 3px; cursor: pointer; margin-bottom: 5px;
-    padding: 10px 10px 10px 20px;
+    padding: 10px; padding-left: 20px;
   }
   & li:hover, & li.active {
     background: var(--color-fill-2);

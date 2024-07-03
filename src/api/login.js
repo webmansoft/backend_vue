@@ -3,23 +3,24 @@ import { request } from '@/utils/request.js'
 export default {
 	/**
 	 * 获取验证码
-	 * @returns {*}
+	 * @returns
 	 */
-	getCaptcha() {
+	getCaptch() {
+		// return import.meta.env.VITE_APP_PROXY_PREFIX + '/core/captcha?' + Date.parse(new Date().toString())
 		return request({
-			url: '/backend/captcha',
+			url: '/core/captcha',
 			method: 'get',
 		})
 	},
 
 	/**
 	 * 用户登录
-	 * @param params
-	 * @returns {*}
+	 * @param {object} params
+	 * @returns
 	 */
 	login(params = {}) {
 		return request({
-			url: '/backend/login',
+			url: '/core/login',
 			method: 'post',
 			data: params,
 		})
@@ -27,12 +28,12 @@ export default {
 
 	/**
 	 * 用户退出
-	 * @param params
-	 * @returns {*}
+	 * @param {object} params
+	 * @returns
 	 */
 	logout(params = {}) {
 		return request({
-			url: '/backend/logout',
+			url: '/core/logout',
 			method: 'post',
 			data: params,
 		})
@@ -40,14 +41,14 @@ export default {
 
 	/**
 	 * 获取登录用户信息
-	 * @param params
-	 * @returns {*}
+	 * @param {object} params
+	 * @returns
 	 */
-	getUserInfo(params = {}) {
+	getInfo(params = {}) {
 		return request({
-			url: '/backend/admin/getUserInfo',
+			url: '/core/system/user',
 			method: 'get',
 			data: params,
 		})
-	}
+	},
 }

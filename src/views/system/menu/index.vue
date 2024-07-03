@@ -72,7 +72,7 @@
       api: menu.deletes, auth: ['/core/menu/destroy'],
       realApi: menu.realDestroy, realAuth: ['/core/menu/realDestroy']
     },
-    recovery: { show: true, api: menu.recovery, auth: ['/core/menu/recovery']},
+    recovery: { show: true, api: menu.recoverys, auth: ['/core/menu/recovery']},
     formOption: { viewType: 'drawer', width: 600 },
     isExpand: true,
     beforeOpenAdd: () => {

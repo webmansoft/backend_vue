@@ -51,7 +51,7 @@ const useUserStore = defineStore('user', {
 
     requestUserInfo() {
       return new Promise((resolve, reject) => {
-        loginApi.getUserInfo().then(async response => {
+        loginApi.getInfo().then(async response => {
           if (! response || ! response.data) {
             this.clearToken()
             await router.push({name: 'login'})
@@ -70,9 +70,9 @@ const useUserStore = defineStore('user', {
     },
 
     login(form) {
-      return loginApi.login(form).then(res => {
-        if (res.code === 0) {
-          this.setToken(res.data.token)
+      return loginApi.login(form).then(r => {
+        if (r.code === 200) {
+          this.setToken(r.data.token)
           return true
         } else {
           return false
@@ -84,6 +84,7 @@ const useUserStore = defineStore('user', {
     },
 
     async logout() {
+      // await loginApi.logout()
       const tagStore = useTagStore()
       tool.local.remove('tags')
       tagStore.clearTags()
@@ -106,7 +107,7 @@ const useUserStore = defineStore('user', {
 
 })
 
-// 路由扁平化
+//路由扁平化
 const flatAsyncRoutes = (routes, breadcrumb=[]) => {
   let res = []
   routes.forEach(route => {

@@ -1,4 +1,4 @@
-import { createPinia } from 'pinia'
+import {createPinia} from 'pinia'
 import useUserStore from './modules/user'
 import useAppStore from './modules/app'
 import useTagStore from './modules/tag'
@@ -11,13 +11,13 @@ import useFormStore from './modules/form'
 const pinia = createPinia()
 
 export {
-  useUserStore,
-  useAppStore,
-  useTagStore,
-  useKeepAliveStore,
-  useIframeStore,
-  useConfigStore,
-  useMessageStore,
-  useFormStore,
+    useUserStore,
+    useAppStore,
+    useTagStore,
+    useKeepAliveStore,
+    useIframeStore,
+    useConfigStore,
+    useMessageStore,
+    useFormStore,
 }
 export default pinia

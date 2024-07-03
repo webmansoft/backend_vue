@@ -1158,11 +1158,6 @@
   resolved "https://registry.npmmirror.com/@transloadit/prettier-bytes/-/prettier-bytes-0.0.7.tgz#cdb5399f445fdd606ed833872fa0cabdbc51686b"
   integrity sha512-VeJbUb0wEKbcwaSlj5n+LscBl9IPgLPkHVGBkh00cztv6X4L/TJXK58LzFuBKX7/GAfiGhIwH67YTLTlzvIzBA==
 
-"@types/crypto-js@^4.2.2":
-  version "4.2.2"
-  resolved "https://registry.npmmirror.com/@types/crypto-js/-/crypto-js-4.2.2.tgz#771c4a768d94eb5922cc202a3009558204df0cea"
-  integrity sha512-sDOLlVbHhXpAUAL0YHDUUwDZf3iN4Bwi4W6a0W0b+QcAezUbRtH4FVb+9J4h+XFPW7l/gQ9F8qC7P+Ec4k8QVQ==
-
 "@types/estree@1.0.5":
   version "1.0.5"
   resolved "https://registry.npmmirror.com/@types/estree/-/estree-1.0.5.tgz#a6ce3e556e00fd9895dd872dd172ad0d4bd687f4"
@@ -1178,11 +1173,6 @@
   resolved "https://registry.npmmirror.com/@types/linkify-it/-/linkify-it-5.0.0.tgz#21413001973106cda1c3a9b91eedd4ccd5469d76"
   integrity sha512-sVDA58zAw4eWAffKOaQH5/5j3XeayukzDk+ewSsnv3p4yJEZHCCzMDiZM8e0OUrRvmpGZ85jf4yDHkHsgBNr9Q==
 
-"@types/lodash@^4.17.6":
-  version "4.17.6"
-  resolved "https://registry.npmmirror.com/@types/lodash/-/lodash-4.17.6.tgz#193ced6a40c8006cfc1ca3f4553444fb38f0e543"
-  integrity sha512-OpXEVoCKSS3lQqjx9GGGOapBeuW5eUboYHRlHP9urXPX25IKZ6AnP5ZRxtVf63iieUbsHxLn8NQ5Nlftc6yzAA==
-
 "@types/markdown-it@^14.0.1":
   version "14.1.1"
   resolved "https://registry.npmmirror.com/@types/markdown-it/-/markdown-it-14.1.1.tgz#06bafb7a4e3f77b62b1f308acf7df76687887e0b"
@@ -1195,16 +1185,6 @@
   version "2.0.0"
   resolved "https://registry.npmmirror.com/@types/mdurl/-/mdurl-2.0.0.tgz#d43878b5b20222682163ae6f897b20447233bdfd"
   integrity sha512-RGdgjQUZba5p6QEFAVx2OGb8rQDL/cPRG7GiedRzMcJ1tYnUANBncjbSB1NRGwbvjcPeikRABz2nshyPk1bhWg==
-
-"@types/nprogress@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.npmmirror.com/@types/nprogress/-/nprogress-0.2.3.tgz#b2150b054a13622fabcba12cf6f0b54c48b14287"
-  integrity sha512-k7kRA033QNtC+gLc4VPlfnue58CM1iQLgn1IMAU8VPHGOj7oIHPp9UlhedEnD/Gl8evoCjwkZjlBORtZ3JByUA==
-
-"@types/qs@^6.9.15":
-  version "6.9.15"
-  resolved "https://registry.npmmirror.com/@types/qs/-/qs-6.9.15.tgz#adde8a060ec9c305a82de1babc1056e73bd64dce"
-  integrity sha512-uXHQKES6DQKKCLh441Xv/dwxOq1TVS3JPUMlEqoEglvlhR6Mxnlew/Xq/LRVHpLyk7iK3zODe1qYHIMltO7XGg==
 
 "@uppy/companion-client@^2.2.2":
   version "2.2.2"
@@ -1649,6 +1629,15 @@ autoprefixer@^10.4.17:
     picocolors "^1.0.0"
     postcss-value-parser "^4.2.0"
 
+axios@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.npmmirror.com/axios/-/axios-1.6.0.tgz#f1e5292f26b2fd5c2e66876adc5b06cdbd7d2102"
+  integrity sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==
+  dependencies:
+    follow-redirects "^1.15.0"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
+
 axios@^0.27.2:
   version "0.27.2"
   resolved "https://registry.npmmirror.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
@@ -1656,15 +1645,6 @@ axios@^0.27.2:
   dependencies:
     follow-redirects "^1.14.9"
     form-data "^4.0.0"
-
-axios@^1.7.2:
-  version "1.7.2"
-  resolved "https://registry.npmmirror.com/axios/-/axios-1.7.2.tgz#b625db8a7051fbea61c35a3cbb3a1daa7b9c7621"
-  integrity sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==
-  dependencies:
-    follow-redirects "^1.15.6"
-    form-data "^4.0.0"
-    proxy-from-env "^1.1.0"
 
 b-tween@^0.3.3:
   version "0.3.3"
@@ -2271,7 +2251,7 @@ fill-range@^7.1.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-follow-redirects@^1.14.9, follow-redirects@^1.15.6:
+follow-redirects@^1.14.9, follow-redirects@^1.15.0:
   version "1.15.6"
   resolved "https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.15.6.tgz#7f815c0cda4249c74ff09e95ef97c23b5fd0399b"
   integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
