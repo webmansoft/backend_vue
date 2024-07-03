@@ -1,15 +1,15 @@
 <script setup>
-import { reactive, ref } from "vue";
-import loginApi from "@/api/login";
-import { useUserStore } from "@/store";
-import { useRouter, useRoute } from "vue-router";
+import {reactive, ref} from 'vue'
+import loginApi from '@/api/login'
+import {useUserStore} from '@/store'
+import {useRouter, useRoute} from 'vue-router'
 
-const router = useRouter();
-const route = useRoute();
-const captcha = ref(null);
-const loading = ref(false);
+const router = useRouter()
+const route = useRoute()
+const captcha = ref(null)
+const loading = ref(false)
 
-let isDevelop = import.meta.env.VITE_APP_ENV === "development";
+let isDevelop = import.meta.env.VITE_APP_ENV === "development"
 
 const defaultData = {
   username: isDevelop ? "admin" : "",
@@ -20,52 +20,48 @@ const defaultData = {
 const form = reactive(defaultData);
 
 const refreshCaptcha = () => {
-  form.uuid = "";
-  form.captcha = "";
-  form.client = "WEB";
+  form.uuid = ""
+  form.captcha = ""
+  form.client = "WEB"
   loginApi.getCaptcha().then((res) => {
     if (res.code === 0) {
-      captcha.value = res.data.image;
-      form.uuid = res.data.uuid;
+      captcha.value = res.data.image
+      form.uuid = res.data.uuid
     }
   });
 };
 
-refreshCaptcha();
+refreshCaptcha()
 
-const userStore = useUserStore();
+const userStore = useUserStore()
 
-const redirect = route.query.redirect ? route.query.redirect : "/";
+const redirect = route.query.redirect ? route.query.redirect : "/"
 
-const handleSubmit = async ({ errors }) => {
+const handleSubmit = async ({errors}) => {
   if (loading.value) {
-    return;
+    return
   }
   loading.value = true;
   if (!errors) {
     const result = await userStore.login(form);
     if (!result) {
-      loading.value = false;
-      refreshCaptcha();
-      return;
+      loading.value = false
+      refreshCaptcha()
+      return
     }
-    await router.push(redirect);
+    await router.push(redirect)
   }
-  loading.value = false;
-};
+  loading.value = false
+}
 </script>
 <template>
   <div id="background" class="fixed"></div>
   <div class="bg-backdrop-layout"></div>
   <div class="login-container">
-    <div
-      class="login-width md:w-10/12 w-11/12 mx-auto flex justify-between h-full items-center"
-    >
-      <div
-        class="w-6/12 mx-auto left-panel rounded-l pl-5 pr-5 hidden md:block"
-      >
+    <div class="login-width md:w-10/12 w-11/12 mx-auto flex justify-between h-full items-center">
+      <div class="w-6/12 mx-auto left-panel rounded-l pl-5 pr-5 hidden md:block">
         <div class="logo">
-          <img :src="`${$url}logo.png`" width="45" alt="logo" />
+          <img :src="`${$url}logo.png`" width="45" alt="logo"/>
           <span>{{ $title }}</span>
         </div>
         <div class="slogan flex justify-end">
@@ -77,102 +73,86 @@ const handleSubmit = async ({ errors }) => {
         <h2 class="mt-10 text-3xl pb-0 mb-10">{{ $t("sys.login.title") }}</h2>
         <a-form :model="form" @submit="handleSubmit">
           <a-form-item
-            field="username"
-            :hide-label="true"
-            :rules="[
-              { required: true, message: $t('sys.login.usernameNotice') },
-            ]"
-          >
+              field="username"
+              :hide-label="true"
+              :rules="[{ required: true, message: $t('sys.login.usernameNotice') }]">
             <a-input
-              v-model="form.username"
-              class="w-full"
-              size="large"
-              :placeholder="$t('sys.login.username')"
-              allow-clear
-            >
+                v-model="form.username"
+                class="w-full"
+                size="large"
+                :placeholder="$t('sys.login.username')"
+                allow-clear>
               <template #prefix>
-                <icon-user />
+                <icon-user/>
               </template>
             </a-input>
           </a-form-item>
 
           <a-form-item
-            field="password"
-            :hide-label="true"
-            :rules="[
-              { required: true, message: $t('sys.login.passwordNotice') },
-            ]"
-          >
+              field="password"
+              :hide-label="true"
+              :rules="[{ required: true, message: $t('sys.login.passwordNotice') }]">
             <a-input-password
-              v-model="form.password"
-              :placeholder="$t('sys.login.password')"
-              size="large"
-              allow-clear
-            >
+                v-model="form.password"
+                :placeholder="$t('sys.login.password')"
+                size="large"
+                allow-clear>
               <template #prefix>
-                <icon-lock />
+                <icon-lock/>
               </template>
             </a-input-password>
           </a-form-item>
 
           <a-form-item
-            field="captcha"
-            :hide-label="true"
-            :rules="[
-              {
+              field="captcha"
+              :hide-label="true"
+              :rules="[{
                 required: true,
                 match: /^[a-zA-Z0-9]{4}$/,
                 message: $t('sys.login.verifyCodeNotice'),
-              },
-            ]"
-          >
+              }]">
             <a-input
-              v-model="form.captcha"
-              :placeholder="$t('sys.login.verifyCode')"
-              size="large"
-              allow-clear
-            >
+                v-model="form.captcha"
+                :placeholder="$t('sys.login.verifyCode')"
+                size="large"
+                allow-clear>
               <template #prefix>
-                <icon-safe />
+                <icon-safe/>
               </template>
               <template #append>
                 <img
-                  :src="captcha"
-                  style="width: 120px; height: 36px; cursor: pointer"
-                  @click="refreshCaptcha"
-                  alt="captcha"
-                />
+                    :src="captcha"
+                    style="width: 120px; height: 36px; cursor: pointer"
+                    @click="refreshCaptcha"
+                    alt="captcha"/>
               </template>
             </a-input>
           </a-form-item>
 
           <a-form-item :hide-label="true" class="mt-5">
             <a-button
-              html-type="submit"
-              type="primary"
-              long
-              size="large"
-              :loading="loading"
-            >
+                html-type="submit"
+                type="primary"
+                long
+                size="large"
+                :loading="loading">
               {{ $t("sys.login.loginBtn") }}
             </a-button>
           </a-form-item>
 
-          <a-divider orientation="center"
-            >{{ $t("sys.login.otherLoginType") }}
-          </a-divider>
+          <a-divider orientation="center">{{ $t("sys.login.otherLoginType") }}</a-divider>
           <div class="flex w-3/4 pt-2 mx-auto items-stretch justify-around">
             <a-avatar class="other-login wechat">
-              <icon-wechat />
+              <icon-wechat/>
             </a-avatar>
             <a-avatar class="other-login alipay">
-              <icon-alipay-circle />
+              <icon-alipay-circle/>
             </a-avatar>
             <a-avatar class="other-login qq">
-              <icon-qq />
+              <icon-qq/>
             </a-avatar>
             <a-avatar class="other-login weibo">
-              <icon-weibo />
+              <icon-weibo/>
             </a-avatar>
           </div>
         </a-form>
