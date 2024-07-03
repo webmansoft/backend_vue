@@ -5,10 +5,10 @@ export default {
 	 * 获取验证码
 	 * @returns
 	 */
-	getCaptch() {
+	getCaptcha() {
 		// return import.meta.env.VITE_APP_PROXY_PREFIX + '/core/captcha?' + Date.parse(new Date().toString())
 		return request({
-			url: '/core/captcha',
+			url: '/backend/captcha',
 			method: 'get',
 		})
 	},
@@ -20,7 +20,7 @@ export default {
 	 */
 	login(params = {}) {
 		return request({
-			url: '/core/login',
+			url: '/backend/login',
 			method: 'post',
 			data: params,
 		})
@@ -33,7 +33,7 @@ export default {
 	 */
 	logout(params = {}) {
 		return request({
-			url: '/core/logout',
+			url: '/backend/logout',
 			method: 'post',
 			data: params,
 		})
@@ -44,9 +44,9 @@ export default {
 	 * @param {object} params
 	 * @returns
 	 */
-	getInfo(params = {}) {
+	getUserInfo(params = {}) {
 		return request({
-			url: '/core/system/user',
+			url: '/backend/admin/getUserInfo',
 			method: 'get',
 			data: params,
 		})

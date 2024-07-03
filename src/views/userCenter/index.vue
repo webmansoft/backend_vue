@@ -114,7 +114,7 @@ export default { name: 'userCenter' }
 .user-header {
   width: 100%;
   height: 200px;
-  background: url('@/assets/userBanner.jpg') no-repeat;
+  background: url('@/assets/user_banner.jpg') no-repeat;
   background-size: cover;
 }
 </style>
