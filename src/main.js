@@ -19,9 +19,9 @@ dayjs.extend(relativeTime)
 // import '@arco-design/web-vue/dist/arco.css'
 // MineAdmin-V2样式
 import '@arco-themes/vue-mine-admin-v2/index.less'
-import './style/skin.less'
-import './style/index.css'
-import './style/global.less'
+import '@/style/skin.less'
+import '@/style/index.css'
+import '@/style/global.less'
 
 import tool from '@/utils/tool'
 import * as common from '@/utils/common'
